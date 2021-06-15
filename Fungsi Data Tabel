@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Data Table',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Data Table Example"),
+      ),
+
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: DataTable(
+          columns: <DataColumn>[
+            DataColumn(label: Text("Nama)")),
+            DataColumn(label: Text("Jenis Kelamin")),
+            DataColumn(label: Text("Nirm")),
+            DataColumn(label: Text("Jurusan")),
+          ],
+          rows: <DataRow>[
+            DataRow(
+                cells: <DataCell>[
+                  DataCell(Text("Adventus Trifanly Rajagukguk")),
+                  DataCell(Text("Laki-laki")),
+                  DataCell(Text("2018020468")),
+                  DataCell(Text("Sistem Informasi")),
+                ],
+            ),
+            DataRow(
+                cells: <DataCell>[
+                  DataCell(Text("Elida Sinukaban")),
+                  DataCell(Text("Perempuan")),
+                  DataCell(Text("2018020468")),
+                  DataCell(Text("Sistem Informasi")),
+                ],
+            ),
+            DataRow(
+                cells: <DataCell>[
+                  DataCell(Text("Daniel sitorus")),
+                  DataCell(Text("Laki-laki")),
+                  DataCell(Text("2018020468")),
+                  DataCell(Text("Sistem Informasi")),
+                ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
